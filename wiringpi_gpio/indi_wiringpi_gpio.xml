@@ -1,0 +1,6 @@
+<devGroup group="Auxiliary">
+	<device label="WiringPi GPIO">
+        <driver name="WiringPi GPIO">indi_wiringpi_gpio</driver>
+        <version>0.1</version>
+	</device>
+</devGroup>

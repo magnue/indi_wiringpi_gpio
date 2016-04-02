@@ -1,0 +1,36 @@
+INDI WiringPi GPIO 0.1 - (beta)
+===============================
+
+You must have CMake >= 2.8 in order to build this package.
+
+indi_wiringpi_gpio
+==================
+
+1) $ cd ~/Projects
+2) $ git clone https://github.com/magnue/indi_wiringpi_gpio.git
+3) $ cd indi_wiringpi_gpio
+4) $ mkdir build
+5) $ cd build
+6) $ cmake -DCMAKE_INSTALL_PREFIX=/usr . ..
+7) $ sudo make install
+
+Dependencies
+============
+
++ libindi and it's dependencies
+    # To to build libindi from source 
+        # http://www.indilib.org/forum/general/210-howto-building-latest-libindi-ekos.html
+
++ libwiringPi 
+    $ mkdir ~/Projects
+    $ cd ~/Projects
+    $ git clone git://git.drogon.net/wiringPi           # for RaspberryPi
+    $ cd wiringPi
+    $ git clone https://github.com/hardkernel/wiringPi  # for Odroid
+    $ cd hardkernel/wiringPi
+    $ ./build
+    $ echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/usr_local_lib.conf
+    $ sudo ldconfig
+
++ gawk
+    $ sudo apt-get install gawk
