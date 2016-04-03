@@ -21,7 +21,6 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
   *******************************************************************************/
-
 #ifndef WiringPiGPIO_H
 #define WiringPiGPIO_H
 
@@ -115,7 +114,7 @@ class WiringPiGPIO : public INDI::DefaultDevice
         ISwitch OutputDigitalS                  [NUMBER_OF_PINS]    [2];
 
         INumberVectorProperty* OutputPWMNP;
-        INumber OutputPWMN[1];
+        INumber OutputPWMN;
         
         /**************************************************************************
          * CONFIGURATION TAB

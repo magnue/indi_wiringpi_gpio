@@ -288,7 +288,6 @@ bool WiringPiGPIO::updateProperties()
             if (OutputDigitalSP[i]->sp != NULL)
                 defineSwitch(OutputDigitalSP[i]);
         }
-        startUp = false;
     } else
     {
         deleteProperty(OSInfoTP.name);
@@ -433,7 +432,6 @@ bool WiringPiGPIO::ISNewSwitch(const char *dev, const char *name, ISState *state
                 OutputDigitalSP[pinNr]->sp = NULL;
                 if (pinNr == 1)
                     OutputPWMNP->np = NULL;
-                updateProperties();
             }
             else if (mode == MODE_OUTPUT)
             {
@@ -450,22 +448,26 @@ bool WiringPiGPIO::ISNewSwitch(const char *dev, const char *name, ISState *state
                 InputDigitalLP[pinNr]->lp = NULL;
                 if (pinNr == 1)
                     OutputPWMNP->np = NULL;
-                updateProperties();
             }
             else if (mode == MODE_OUTPUT_PWM && pinNr == 1)
             {
                 wiPiInterface.PinMode(pinNr, PWM_OUTPUT);
-                IUFillNumber(&OutputPWMN[0], ("OUTPUT_PWM_" + to_string(pinNr)).c_str(), mode.c_str(), "%6.0f", 0, 1024, 1, 0);
-                IUFillNumberVector(OutputPWMNP, &OutputPWMN[0], 1, dev
+                IUFillNumber(&OutputPWMN, ("OUTPUT_PWM_" + to_string(pinNr)).c_str(), mode.c_str(), "%6.0f", 0, 1024, 1, 0);
+                IUFillNumberVector(OutputPWMNP, &OutputPWMN, 1, dev
                         , ("OUTPUT_PWM_VECTOR_" + to_string(pinNr)).c_str(), ("Pin: " + to_string(pinNr)).c_str()
                         , MAIN_CONTROL_TAB, IP_RW, 60, IPS_IDLE);
 
                 InputDigitalLP[pinNr]->lp = NULL;
                 OutputDigitalSP[pinNr]->sp = NULL;
-                updateProperties();
             }
             else if (mode == MODE_GPIO_CLOKC && pinNr == 7)
                 wiPiInterface.PinMode(pinNr, GPIO_CLOCK);
+
+            if ( (startUp && pinNr == 20) || (!startUp && !notUsed) )
+            {
+                startUp = false;
+                updateProperties();
+            }
 
             IDMessage(dev, "Pin: %d, is set to mode: %s\n", pinNr, mode.c_str()); 
             IUUpdateSwitch(PinsConfigSP[pinNr], states, names, n);

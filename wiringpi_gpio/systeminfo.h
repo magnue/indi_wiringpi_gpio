@@ -21,7 +21,6 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
   *******************************************************************************/
-
 #ifndef SystemInfo_H
 #define SystemInfo_H
 
@@ -78,5 +77,4 @@ class SystemInfo
         double PopenDouble(const char* cmd);
         string DoubleToUptimeString(double uptime);
 };
-
 #endif

@@ -71,4 +71,3 @@ int WiringPiInterface::DigiRead(int pin)
 {
     return digitalRead(pin);   
 }
-
