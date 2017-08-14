@@ -21,7 +21,6 @@ For pin functions of the Raspberry Pi, see [wiringpi.com - special pin functions
 
 Follow the link for pin layout for [Odroid C1](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433&tab_idx=2), or [Odroid C1+](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573&tab_idx=2)
 
-<br>
 #### Known issues
 * THIS IS A WORK IN PROGRESS, not a finished product...
 * In the current state the WiringPi wiringPiSetup (void); function is used to initiate the library. This is so no special handeling is necessary to support all the variants of Raspberry Pi, and Odroid that has a ported version of WiringPi. However, this means that the indiserver must be started with sudo: $ sudo indiserver indi_wiringpi_gpio to enable pwm-output, and gpio-clock
@@ -29,14 +28,12 @@ Follow the link for pin layout for [Odroid C1](http://www.hardkernel.com/main/pr
 * When using the wiringPiSetup (void); function to initiate WiringPi, all errors are considered a "fatal" error. This means that starting indi_wiringpi_gpio on a system without supported gpio board, the driver will crash.
 * On the System tab, only Ubunut distros wil show "os-distro, and os-codename"
 
-<br>
 #### Attributions
 * This project could not be done without the existing libindi project or the WiringPi library, among others.
 * This project is 3rd party and dependent on the mentioned projects, and licensed accordingly. See LICENSE and COPYING.BSD.
 * This driver is loosely based on the [RaspberryPi GPIO Driver](http://indilib.org/develop/indiforjava/i4jdrivers/raspberry-pi-gpio-driver.html) buildt for "INDI for Java", and ames to serve the same function for INDI
 * Some files have additional lisence information, see file headers.
 
-<br>
 #### Installing dependencies
 ##### libindi [INDILib], and it's dependencies
 * To build libindi from source [see instructions](http://www.indilib.org/forum/general/210-howto-building-latest-libindi-ekos.html)
@@ -59,7 +56,6 @@ $ sudo ldconfig
 $ sudo apt-get install gawk
 ```
 
-<br>
 #### Install INDI WiringPi GPIO
 ```
 $ cd ~/Projects
@@ -78,7 +74,6 @@ $ cd build
 $ sudo make install
 ```
 
-<br>
 #### Screenshots
 
 ##### System
