@@ -77,6 +77,13 @@ void ISSnoopDevice (XMLEle *root)
 * ***********************************************************************************/
 WiringPiGPIO::WiringPiGPIO()
 {
+    for (int i = 0; i < NUMBER_OF_PINS; i++)
+    {
+        InputDigitalLP[i] = new ILightVectorProperty;
+        OutputDigitalSP[i] = new ISwitchVectorProperty;
+    }
+    OutputPWMNP = new INumberVectorProperty;
+
     setVersion(0,1);
     setDriverInterface(AUX_INTERFACE);
 }
@@ -106,12 +113,6 @@ bool WiringPiGPIO::initProperties()
     /************************************************************************************
     * Main Tab
     * ***********************************************************************************/
-    for (int i = 0; i < NUMBER_OF_PINS; i++)
-    {
-        InputDigitalLP[i] = new ILightVectorProperty;
-        OutputDigitalSP[i] = new ISwitchVectorProperty;
-    }
-    OutputPWMNP = new INumberVectorProperty;
 
     /************************************************************************************
     * Configuration Tab
