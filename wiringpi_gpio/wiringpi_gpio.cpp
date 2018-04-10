@@ -81,6 +81,9 @@ WiringPiGPIO::WiringPiGPIO()
     {
         InputDigitalLP[i] = new ILightVectorProperty;
         OutputDigitalSP[i] = new ISwitchVectorProperty;
+        // @pauledd bugfix for gcc-6.x
+        InputDigitalLP[i]->lp = NULL;
+        OutputDigitalSP[i]->sp = NULL;
     }
     OutputPWMNP = new INumberVectorProperty;
 
