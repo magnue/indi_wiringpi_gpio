@@ -43,7 +43,7 @@ set(wiringpi_gpio_SRCS
    )
 
 add_executable(indi_wiringpi_gpio ${wiringpi_gpio_SRCS})
-target_link_libraries(indi_wiringpi_gpio ${INDI_DRIVER_LIBRARIES} ${WIRING_PI_LIBRARIES})
+target_link_libraries(indi_wiringpi_gpio ${INDI_DRIVER_LIBRARIES} ${WIRING_PI_LIBRARIES} crypt)
 install(TARGETS indi_wiringpi_gpio RUNTIME DESTINATION bin )
 install(FILES ${CMAKE_SOURCE_DIR}/wiringpi_gpio/99-wiringpi.rules DESTINATION ${UDEVRULES_INSTALL_DIR})
 install( FILES ${CMAKE_SOURCE_DIR}/wiringpi_gpio/indi_wiringpi_gpio.xml DESTINATION ${DATA_INSTALL_DIR})
