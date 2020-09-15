@@ -1,5 +1,8 @@
 ### INDI WiringPi GPIO
 
+#### Deprecation notice
+As I am not using a Rasberry Pi or a Odroid for my observatory any longer, I will not have a need for this driver, or the means to build and debug it. You can continue using this driver, at your own initiative, but I might not be able to help if you post an issue.
+
 #### Summary
 INDI WiringPi GPIO is a General Purpose Input Output driver compatible with INDI Control Panel and INDI clients. (Tested only with EKOS in KStars)
 The project has been compiled and tested on Linux (Raspian Jessie) ARM (Raspberry Pi 1 model B), and (Lubuntu Trusty) armv7l (Odroid C1+).
